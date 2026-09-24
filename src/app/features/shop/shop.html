@@ -1,0 +1,33 @@
+<app-hero titre="Shop"></app-hero>
+
+		<div class="untree_co-section product-section before-footer-section">
+		    <div class="container">
+		      <div class="row">
+
+		      @for (item of productsLot1; track $index) {
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+            <app-product-item
+              [imageUrl]="item.imageUrl"
+              [title]="item.title"
+              [price]="item.price"
+              [detailPageUrl]="item.detailPageUrl"
+            ></app-product-item>
+          </div>
+          }
+		      </div>
+          <div class="row mt-5">
+
+		      @for (item of productsLot2; track $index) {
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+            <app-product-item
+              [imageUrl]="item.imageUrl"
+              [title]="item.title"
+              [price]="item.price"
+              [detailPageUrl]="item.detailPageUrl"
+            ></app-product-item>
+          </div>
+          }
+		      	</div>
+		    </div>
+		</div>
+

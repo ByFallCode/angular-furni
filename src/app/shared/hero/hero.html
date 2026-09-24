@@ -1,0 +1,31 @@
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+                @if (titre()) {
+                  <h1>{{titre()}}</h1>
+                }
+                @if (description()) {
+                  <p class="mb-4">{{description()}}</p>
+                }
+                @if (cta1() && cta2()) {
+								<p>
+                  <a href="" class="btn btn-secondary me-2">{{cta1()}}</a>
+                  <a href="#" class="btn btn-white-outline">{{cta2()}}</a>
+                </p>
+                }
+							</div>
+						</div>
+						<div class="col-lg-7">
+              @if (imageUrl()) {
+							<div class="hero-img-wrap">
+								<img src="{{imageUrl()}}" class="img-fluid">
+							</div>
+              }
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
