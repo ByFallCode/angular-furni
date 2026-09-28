@@ -10,6 +10,6 @@ import { RouterLink } from '@angular/router';
 export class ProductItem {
   imageUrl = input<string>();
   title = input<string>();
-  price = input<string>();
+  price = input<number>();
   detailPageUrl = input<string>();
 }

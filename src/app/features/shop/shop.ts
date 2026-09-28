@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal, Signal } from '@angular/core';
 import { Header } from '../../layout/header/header';
 import { Footer } from '../../layout/footer/footer';
 import { Hero } from '../../shared/hero/hero';
 import { ProductItem } from '../../shared/product-item/product-item';
+import { ProductServiceTs } from '../../core/services/product-service.ts';
 
 @Component({
   selector: 'app-shop',
@@ -11,6 +12,26 @@ import { ProductItem } from '../../shared/product-item/product-item';
   styleUrl: './shop.css',
 })
 export class Shop {
+
+  products = signal<ProductModel[]>([]);
+  imageUrl = 'images/product-1.png';
+  detailPageUrl = 'product-detail.html';
+
+  constructor(private productService: ProductServiceTs) {}
+
+  ngOnInit() {
+    this.productService.getProducts()
+      .then(products => {
+        this.products.set(products.data); // Assuming the API response has a 'data' property containing the products
+        console.log('Products Models:', this.products());
+        console.log('Products Models length:', this.products().length);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  }
+
+
     productsLot1 = [
     {
       imageUrl: 'images/product-1.png',
